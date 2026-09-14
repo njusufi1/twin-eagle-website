@@ -10,6 +10,8 @@ const config: Config = {
         soft: "#111111",
         line: "#2A2A2A",
         gold: "#C9A15A",
+        sable: "#6C8EBF",
+        sage: "#4FA88C",
       },
       boxShadow: {
         subtle: "0 18px 50px rgba(0, 0, 0, 0.35)",

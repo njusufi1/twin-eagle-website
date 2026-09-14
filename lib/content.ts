@@ -30,7 +30,7 @@ export const navItems = [
 ];
 
 // ---------------------------------------------------------------------------
-// The four pillars — cost, control, coverage, standards. This replaces the
+// The four pillars - cost, control, coverage, standards. This replaces the
 // generic "trusted partnership" framing with the concrete, provable reasons
 // a client should choose Twin Eagle over a US hire or an unguaranteed
 // offshore vendor.
@@ -57,7 +57,7 @@ export const pillars = [
     stat: "1 week",
     statLabel: "free replacement, unlimited",
     description:
-      "If a placement doesn't work out, we replace them within a week at no additional cost — for the life of the engagement. No gap, no risk.",
+      "If a placement doesn't work out, we replace them within a week at no additional cost, for the life of the engagement. No gap, no risk.",
     icon: ShieldCheck,
   },
   {
@@ -71,17 +71,17 @@ export const pillars = [
 ];
 
 // ---------------------------------------------------------------------------
-// The Coverage Guarantee — named, explicit policy. Terms are stated plainly
+// The Coverage Guarantee - named, explicit policy. Terms are stated plainly
 // so a skeptical buyer doesn't have to guess what "guarantee" means.
 // ---------------------------------------------------------------------------
 export const guarantee = {
   name: "The Coverage Guarantee",
   summary:
-    "If a placed professional doesn't work out — performance issues, poor fit, or they leave — we replace them within one week at no additional cost, for the life of the placement. And you're never left short-handed: backup professionals are on standby, ready to step in immediately while we transition your replacement.",
+    "If a placed professional doesn't work out (performance issues, poor fit, or they leave), we replace them within one week at no additional cost, for the life of the placement. And you're never left short-handed: backup professionals are on standby, ready to step in immediately while we transition your replacement.",
   terms: [
     {
       label: "What's covered",
-      detail: "Performance issues, poor fit, resignation, or termination — any reason a placement isn't working.",
+      detail: "Performance issues, poor fit, resignation, or termination: any reason a placement isn't working.",
     },
     {
       label: "Replacement speed",
@@ -93,7 +93,7 @@ export const guarantee = {
     },
     {
       label: "Duration",
-      detail: "Unlimited — this guarantee applies for the full life of the placement, not just an initial window.",
+      detail: "Unlimited. This guarantee applies for the full life of the placement, not just an initial window.",
     },
     {
       label: "Cost to you",
@@ -103,7 +103,7 @@ export const guarantee = {
 };
 
 // ---------------------------------------------------------------------------
-// The 4-step process — reframes "client approves the hire" from a footnote
+// The 4-step process - reframes "client approves the hire" from a footnote
 // into the differentiator it actually is versus a body-shop staffing model.
 // ---------------------------------------------------------------------------
 export const processSteps = [
@@ -124,7 +124,7 @@ export const processSteps = [
   },
   {
     title: "Guaranteed coverage if needed",
-    description: "Protected by the Coverage Guarantee — free replacement within a week, for the life of the placement.",
+    description: "Protected by the Coverage Guarantee: free replacement within a week, for the life of the placement.",
     icon: ShieldCheck,
   },
 ];
@@ -335,12 +335,12 @@ export const faqs = [
   {
     question: "What happens if a hire doesn't work out?",
     answer:
-      "You're covered by the Coverage Guarantee. If a placement isn't meeting expectations — for any reason, at any point in the engagement — we provide a replacement within one week at no additional cost. Backup professionals are on standby and can step in immediately, so you're never stuck without coverage while we transition someone new in.",
+      "You're covered by the Coverage Guarantee. If a placement isn't meeting expectations, for any reason, at any point in the engagement, we provide a replacement within one week at no additional cost. Backup professionals are on standby and can step in immediately, so you're never stuck without coverage while we transition someone new in.",
   },
   {
     question: "Do we get to choose who we hire?",
     answer:
-      "Yes. We source and vet candidates, but you interview and approve every placement before they start. Twin Eagle isn't a body-shop staffing model — nothing begins without your sign-off.",
+      "Yes. We source and vet candidates, but you interview and approve every placement before they start. Twin Eagle isn't a body-shop staffing model; nothing begins without your sign-off.",
   },
   {
     question: "How much can we actually save?",
@@ -369,7 +369,7 @@ export const faqs = [
   },
   {
     question: "How do you ensure quality?",
-    answer: "Quality is supported through careful candidate selection, clear onboarding, defined expectations, communication standards, and ongoing performance alignment — backed by the Coverage Guarantee if a placement doesn't work out.",
+    answer: "Quality is supported through careful candidate selection, clear onboarding, defined expectations, communication standards, and ongoing performance alignment, backed by the Coverage Guarantee if a placement doesn't work out.",
   },
   {
     question: "Where do you recruit talent?",

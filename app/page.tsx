@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ShieldCheck } from "lucide-react";
 import { Button } from "@/components/button";
 import { FeatureCard } from "@/components/card";
 import { MotionReveal } from "@/components/motion-reveal";
 import { Section } from "@/components/section";
 import { AnimatedCounter } from "@/components/animated-counter";
-import { ConnectionPulse } from "@/components/connection-pulse";
 import { GuaranteeBadge } from "@/components/guarantee-badge";
 import {
   clientSuccess,
@@ -46,10 +46,16 @@ const testimonials = [
   },
 ];
 
+const PILLAR_ACCENTS = {
+  gold: { text: "text-gold" },
+  sable: { text: "text-sable" },
+  sage: { text: "text-sage" },
+};
+
 export default function HomePage() {
   return (
     <>
-      {/* Hero — leads with cost + control + the guarantee, not generic trust language */}
+      {/* Hero - leads with cost + control + the guarantee, not generic trust language */}
       <section className="relative overflow-hidden bg-[#050505]">
         <div className="absolute inset-y-0 right-0 hidden w-1/2 bg-[#0B0B0B] lg:block" aria-hidden="true" />
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-14 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:py-24">
@@ -57,8 +63,8 @@ export default function HomePage() {
             <p className="mb-5 inline-flex w-fit rounded-md border border-line bg-[#111111] px-3 py-2 text-xs font-semibold text-zinc-300 sm:text-sm">
               Kosovo-based IT talent for international teams
             </p>
-            <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-normal text-navy md:text-6xl md:leading-tight">
-              Cut IT staffing costs 50%+ — without cutting corners.
+            <h1 className="max-w-4xl text-4xl font-semibold uppercase leading-tight tracking-tight text-navy md:text-6xl md:leading-tight">
+              Cut IT staffing costs 50%+ without cutting corners.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-400 md:text-lg md:leading-8">
               Kosovo-based IT professionals, vetted and ready, who you interview and approve before they start. Every placement is protected by our Coverage Guarantee: a free replacement within a week, for the life of the engagement.
@@ -71,20 +77,29 @@ export default function HomePage() {
           </MotionReveal>
 
           <MotionReveal delay={0.12} className="relative z-10 flex flex-col justify-center gap-5">
-            <ConnectionPulse />
+            <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-line shadow-subtle">
+              <Image
+                src="/team-office.jpg"
+                alt="The Twin Eagle Technologies team collaborating in the Prishtina office"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                priority
+              />
+            </div>
             <div className="grid grid-cols-3 gap-3">
               <div className="rounded-lg border border-line bg-[#111111] p-4 text-center">
-                <p className="text-2xl font-semibold text-navy">
+                <p className="text-2xl font-semibold text-gold">
                   <AnimatedCounter target={50} suffix="%+" />
                 </p>
                 <p className="mt-1 text-xs leading-5 text-zinc-500">Lower cost than a US hire</p>
               </div>
               <div className="rounded-lg border border-line bg-[#111111] p-4 text-center">
-                <p className="text-2xl font-semibold text-navy">1 wk</p>
+                <p className="text-2xl font-semibold text-sage">1 wk</p>
                 <p className="mt-1 text-xs leading-5 text-zinc-500">Guaranteed replacement</p>
               </div>
               <div className="rounded-lg border border-line bg-[#111111] p-4 text-center">
-                <p className="text-2xl font-semibold text-navy">You</p>
+                <p className="text-2xl font-semibold text-sable">YOU</p>
                 <p className="mt-1 text-xs leading-5 text-zinc-500">Approve every hire</p>
               </div>
             </div>
@@ -92,28 +107,31 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Four pillars — the real argument, moved above services */}
+      {/* Four pillars - the real argument, moved above services */}
       <Section
         eyebrow="Why Twin Eagle"
         title="The case for Twin Eagle, in four parts"
-        description="Not generic outsourcing promises — the concrete reasons this beats a US hire or an unguaranteed offshore vendor."
+        description="Not generic outsourcing promises: the concrete reasons this beats a US hire or an unguaranteed offshore vendor."
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {pillars.map((pillar) => (
-            <div key={pillar.title} className="rounded-lg border border-line bg-[#111111] p-6 shadow-sm">
-              <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-md border border-line bg-black text-[#C9A15A]">
-                <pillar.icon aria-hidden="true" className="h-5 w-5" />
+          {pillars.map((pillar, index) => {
+            const accent = [PILLAR_ACCENTS.gold, PILLAR_ACCENTS.sable, PILLAR_ACCENTS.sage, PILLAR_ACCENTS.sable][index % 4];
+            return (
+              <div key={pillar.title} className="rounded-lg border border-line bg-[#111111] p-6 shadow-sm">
+                <div className={`mb-5 flex h-11 w-11 items-center justify-center rounded-md border border-line bg-black ${accent.text}`}>
+                  <pillar.icon aria-hidden="true" className="h-5 w-5" />
+                </div>
+                <p className={`text-2xl font-semibold ${accent.text}`}>{pillar.stat}</p>
+                <p className="mt-1 text-xs font-medium text-zinc-500">{pillar.statLabel}</p>
+                <h3 className="mt-4 text-lg font-semibold text-navy">{pillar.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-zinc-400">{pillar.description}</p>
               </div>
-              <p className="text-2xl font-semibold text-navy">{pillar.stat}</p>
-              <p className="mt-1 text-xs font-medium text-zinc-500">{pillar.statLabel}</p>
-              <h3 className="mt-4 text-lg font-semibold text-navy">{pillar.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-zinc-400">{pillar.description}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Section>
 
-      {/* The Coverage Guarantee — named, explicit, and given real visual weight */}
+      {/* The Coverage Guarantee - named, explicit, and given real visual weight */}
       <Section tone="soft">
         <div className="overflow-hidden rounded-xl border border-[#C9A15A]/30 bg-gradient-to-br from-[#151006] via-[#111111] to-[#111111] p-8 md:p-12">
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
@@ -138,23 +156,26 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* 4-step process — client approval reframed as a process step, not a footnote */}
+      {/* 4-step process - client approval reframed as a process step, not a footnote */}
       <Section eyebrow="How it works" title="A process built around your approval, not ours">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {processSteps.map((step, index) => (
-            <div key={step.title} className="relative rounded-lg border border-line bg-[#111111] p-6">
-              <div className="mb-5 flex items-center justify-between">
-                <span className="text-3xl font-semibold text-zinc-700">{String(index + 1).padStart(2, "0")}</span>
-                <step.icon aria-hidden="true" className="h-5 w-5 text-[#C9A15A]" />
+          {processSteps.map((step, index) => {
+            const accent = [PILLAR_ACCENTS.gold, PILLAR_ACCENTS.sable, PILLAR_ACCENTS.sage, PILLAR_ACCENTS.gold][index % 4];
+            return (
+              <div key={step.title} className="relative rounded-lg border border-line bg-[#111111] p-6">
+                <div className="mb-5 flex items-center justify-between">
+                  <span className="text-3xl font-semibold text-zinc-700">{String(index + 1).padStart(2, "0")}</span>
+                  <step.icon aria-hidden="true" className={`h-5 w-5 ${accent.text}`} />
+                </div>
+                <h3 className="text-base font-semibold text-navy">{step.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-zinc-400">{step.description}</p>
               </div>
-              <h3 className="text-base font-semibold text-navy">{step.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-zinc-400">{step.description}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Section>
 
-      {/* Services — now positioned as supporting detail, not the lead argument */}
+      {/* Services - now positioned as supporting detail, not the lead argument */}
       <Section tone="soft" eyebrow="Services" title="Technical support capacity where it matters most">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
@@ -215,7 +236,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section tone="navy" title="Need Additional Technical Capacity?" description="Let's discuss how Twin Eagle Technologies can help your organization scale efficiently — with every placement backed by the Coverage Guarantee.">
+      <Section tone="navy" title="Need Additional Technical Capacity?" description="Let's discuss how Twin Eagle Technologies can help your organization scale efficiently, with every placement backed by the Coverage Guarantee.">
         <div className="flex flex-wrap items-center gap-4">
           <Button href="/contact" variant="primary">Schedule a Consultation</Button>
           <GuaranteeBadge />
