@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { ShieldCheck } from "lucide-react";
 import { Button } from "@/components/button";
 import { FeatureCard } from "@/components/card";
@@ -7,6 +6,7 @@ import { MotionReveal } from "@/components/motion-reveal";
 import { Section } from "@/components/section";
 import { AnimatedCounter } from "@/components/animated-counter";
 import { GuaranteeBadge } from "@/components/guarantee-badge";
+import { HeroSlider } from "@/components/hero-slider";
 import {
   clientSuccess,
   guarantee,
@@ -77,16 +77,7 @@ export default function HomePage() {
           </MotionReveal>
 
           <MotionReveal delay={0.12} className="relative z-10 flex flex-col justify-center gap-5">
-            <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-line shadow-subtle">
-              <Image
-                src="/team-office.jpg"
-                alt="The Twin Eagle Technologies team collaborating in the Prishtina office"
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                priority
-              />
-            </div>
+            <HeroSlider />
             <div className="grid grid-cols-3 gap-3">
               <div className="rounded-lg border border-line bg-[#111111] p-4 text-center">
                 <p className="text-2xl font-semibold text-gold">
